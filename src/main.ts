@@ -1,3 +1,12 @@
-import { User } from './app/test';
+import { User } from './app/app.component'
 
-console.log('test 12222333', User);
+function component() {
+  let element = document.createElement('div');
+  console.log('test 123');
+
+  element.innerHTML = User;
+
+  return element;
+}
+
+document.body.appendChild(component());
