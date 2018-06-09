@@ -1,1 +1,59 @@
-!function(e){var t={};function r(n){if(t[n])return t[n].exports;var o=t[n]={i:n,l:!1,exports:{}};return e[n].call(o.exports,o,o.exports,r),o.l=!0,o.exports}r.m=e,r.c=t,r.d=function(e,t,n){r.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:n})},r.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},r.t=function(e,t){if(1&t&&(e=r(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(r.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)r.d(n,o,function(t){return e[t]}.bind(null,o));return n},r.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return r.d(t,"a",t),t},r.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},r.p="",r(r.s=3)}([function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.User="Sergey"},,,function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n,o=r(0);document.body.appendChild((n=document.createElement("div"),console.log("test 123"),n.innerHTML=o.User,n))}]);
+(function () {
+
+  router();
+  window.addEventListener("hashchange", () => router());
+
+  function router (route, data){
+    route = route || location.hash.slice(1) || 'home';
+
+    let temp = route.split('?');
+    let route_split = temp.length;
+    let function_to_invoke = temp[0].replace('/', '') || 'home';
+    let params;
+
+   console.log('functionToInvoke', function_to_invoke);
+
+    if (route_split > 1){
+      params = extract_params(temp[1]);
+    }
+
+    //fire away...
+    if(function_to_invoke){
+      getView(function_to_invoke, params);
+    }
+  }
+
+  function getView(view, params) {
+    fetch(`/views/${view}.html`, {headers: new Headers({'content-type': 'text/html'})})
+      .then((val) => val.text())
+      .then((res) => {
+        document.getElementById('outlet').innerHTML = res;
+      })
+      .catch(err => {
+        console.log('Error!', err)
+      })
+  }
+
+  function extract_params (params_string){
+    let params = {};
+    let raw_params = params_string.split('&');
+
+    let j = 0;
+    for (let i = raw_params.length - 1; i >= 0; i--){
+      let url_params = raw_params[i].split('=');
+      if (url_params.length == 2){
+        params[url_params[0]] = url_params[1];
+      }
+      else if (url_params.length == 1){
+        params[j] = url_params[0];
+        j += 1;
+      }
+      else {
+        //param not readable. pass.
+      }
+    }
+
+    return params;
+  }
+
+})();
