@@ -1,7 +1,6 @@
-body {
-  background: white;
-}
+@import "styles/utils";
+@import "styles/login";
 
-h1 {
-  color: white;
+body {
+  margin: 0;
 }

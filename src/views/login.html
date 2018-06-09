@@ -1,17 +1,41 @@
-<h3>Login page</h3>
-<div class="col">
-  <div class="col-6">
-    <form onsubmit="return auth.submit(this);" class="form-group">
-      <label>
-        Email:
-        <input type="email" class="form-control" name="email">
-      </label>
-      <label>
-        Password:
-        <input type="password" class="form-control" name="pass">
-      </label>
-      <button class="btn btn-primary">Login</button>
-      <p id="error-log"></p>
-    </form>
+<div class="limiter">
+  <div class="container-login100" style="background-image: url('/assets/images/bg-01.jpg');">
+    <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+      <form class="login100-form validate-form" onsubmit="return login.submit(this, 'login');">
+					<span class="login100-form-title p-b-49">
+						Login
+					</span>
+
+        <div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
+          <span class="label-input100">Username</span>
+          <input class="input100" type="email" name="email" placeholder="Type your username">
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate="Password is required">
+          <span class="label-input100">Password</span>
+          <input class="input100" type="password" name="pass" placeholder="Type your password">
+        </div>
+
+        <div class="text-right p-t-8 p-b-31">
+          <a href="#/register">
+            Register user
+          </a>
+        </div>
+
+        <div class="text-center">
+          <p id="error-log"></p>
+        </div>
+
+
+        <div class="container-login100-form-btn">
+          <div class="wrap-login100-form-btn">
+            <div class="login100-form-bgbtn"></div>
+            <button class="login100-form-btn">
+              Login
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

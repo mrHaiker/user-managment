@@ -1,20 +1,18 @@
-class LoginController {
-  constructor(firebase) {
+Controllers.login = class {
+  constructor() {
   }
 
-
-
-  submit(el) {
+  submit(el, page) {
     Promise.resolve(el)
-      .then(this.validete)
-      .then(this.login)
+      .then(this.validate)
+      .then(page === 'login' ? this.login : this.register)
       .then(this.clearError)
       .catch(this.writeError);
 
     return false;
   }
 
-  validete(el) {
+  validate(el) {
     if (el.pass.value.length < 6) {
       throw 'Password should be 6 or more symbols';
     } else if (!el.email.value.length) {
@@ -28,6 +26,10 @@ class LoginController {
     console.log('try to login');
   }
 
+  register () {
+    console.log('try to register user');
+  }
+
   clearError() {
     this.writeError();
   }
@@ -35,6 +37,4 @@ class LoginController {
   writeError(err = '') {
     document.getElementById('error-log').innerText = err;
   }
-}
-
-let auth = new LoginController(firebase);
+};
