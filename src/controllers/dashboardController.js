@@ -26,7 +26,9 @@ Controllers.dashboard = class {
         if (user) {
           resolve(user)
         } else {
-          reject('need redirect to login page')
+          reject('Redirect to login page');
+          location.hash = `#/login`;
+          this.loader.hide();
         }
       });
     })
@@ -56,6 +58,14 @@ Controllers.dashboard = class {
         </div>
       </li>
     `
+  }
+
+  logout() {
+    this.firebase.auth().signOut().then(() => {
+      location.hash = `#/login`;
+    });
+
+    return false;
   }
 };
 

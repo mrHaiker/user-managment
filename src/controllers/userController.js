@@ -6,7 +6,6 @@ Controllers.user = class {
 
     this.db = this.firebase.database;
 
-    console.log('router', router);
     router ? this.renderUser() : null;
   }
 
@@ -74,5 +73,13 @@ Controllers.user = class {
 
   writeError(err = '') {
     document.getElementById('error-log').innerText = err;
+  }
+
+  logout() {
+    this.firebase.auth().signOut().then(() => {
+      location.hash = `#/login`;
+    });
+
+    return false;
   }
 };

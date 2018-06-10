@@ -32,11 +32,10 @@ Controllers.login = class {
   }
   
   redirect() {
-    console.log('locationHashDasboard', location.hash = '#/dashboard')
+    location.hash = '#/dashboard';
   }
 
   clearError() {
-    console.log('this', this);
     this.writeError();
   }
 
