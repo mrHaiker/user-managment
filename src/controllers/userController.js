@@ -71,6 +71,13 @@ Controllers.user = class {
     })
   }
 
+  remove() {
+    const id = this.router.params.id;
+    this.db().ref('/users/' + id).remove().then(() => {
+      location.hash = `#/dashboard`;
+    })
+  }
+
   writeError(err = '') {
     document.getElementById('error-log').innerText = err;
   }
