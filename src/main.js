@@ -26,7 +26,7 @@ Services.firebase = firebase;
   }
 
   function getView(view, params) {
-    fetch(`/views/${view}.html`, {headers: new Headers({'content-type': 'text/html'})})
+    fetch(`/user-managment/src//views/${view}.html`, {headers: new Headers({'content-type': 'text/html'})})
       .then((val) => val.text())
       .then((res) => {
         view = view === 'register' ? 'login' : view;
