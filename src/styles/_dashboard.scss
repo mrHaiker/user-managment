@@ -1,0 +1,114 @@
+.board {
+  background: #f1f1f1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  min-height: 100vh;
+
+  &__header {
+    height: 60px;
+    display: flex;
+    justify-content: flex-end;
+    background: #fff;
+    border-bottom: 2px solid #b924e0;
+    align-items: center;
+    box-shadow: 0 0 8px rgba(0,0,0,.23);
+    padding: 0 30px;
+    flex: 0 0 100%;
+    &-logout {
+      color: #676767;
+    }
+  }
+
+  &__main {
+    flex: 1 0 0;
+    padding: 20px;
+
+    .card-footer {
+      font-size: .75em;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  &__add {
+    background: #b924e0;
+    color: #ffffff;
+    &:hover {
+      background: rgba(#b924e0, .6);
+    }
+  }
+}
+
+.side-menu {
+  display: flex;
+  flex: 0 0 180px;
+  width: 100%;
+  height: 100%;
+  min-height: calc(100vh - 60px);
+  background: #fff;
+  border-right: 1px solid #bbb9b6;
+  box-shadow: 0 0 8px rgba(0,0,0,.23);
+  flex-direction: column;
+  padding-top: 40px;
+  &__item {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    color: #676767;
+    cursor: pointer;
+    transition: color .23s ease;
+    user-select: none;
+    &:hover {
+      color: #b924e0;
+    }
+    &_disabled {
+      cursor: default;
+      color: #999;
+      pointer-events: none;
+    }
+  }
+}
+
+.list-group {
+  &-item {
+    border-radius: 0 !important;
+    cursor: pointer;
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    position: relative;
+    &:hover {
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: rgba(#b924e0, .6);
+      }
+      .item-edit {
+        color: #b924e0;
+      }
+    }
+
+    &>.item {
+      &-name {
+        flex: 0 0 30%;
+      }
+      &-email {
+        flex: 1 0 0;
+      }
+      &-edit {
+        flex: 0 0 50px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        color: #999999;
+      }
+    }
+  }
+}

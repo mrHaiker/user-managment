@@ -1,12 +1,13 @@
 Controllers.login = class {
-  constructor() {
+  constructor({ filrebase }) {
   }
 
   submit(el, page) {
     Promise.resolve(el)
       .then(this.validate)
       .then(page === 'login' ? this.login : this.register)
-      .then(this.clearError)
+      .then(() => this.clearError())
+      .then(this.redirect)
       .catch(this.writeError);
 
     return false;
@@ -22,15 +23,20 @@ Controllers.login = class {
     return el;
   }
 
-  login () {
-    console.log('try to login');
+  login (el) {
+    return firebase.auth().signInWithEmailAndPassword(el.email.value, el.pass.value)
   }
 
-  register () {
-    console.log('try to register user');
+  register (el) {
+    return firebase.auth().createUserWithEmailAndPassword(el.email.value, el.pass.value);
+  }
+  
+  redirect() {
+    console.log('locationHashDasboard', location.hash = '#/dashboard')
   }
 
   clearError() {
+    console.log('this', this);
     this.writeError();
   }
 

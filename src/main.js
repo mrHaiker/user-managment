@@ -1,4 +1,7 @@
 let Controllers = {};
+let Services = {};
+
+Services.firebase = firebase;
 
 (function () {
 
@@ -28,7 +31,7 @@ let Controllers = {};
       .then((val) => val.text())
       .then((res) => {
         view = view === 'register' ? 'login' : view;
-        window[view] = new Controllers[view]();
+        window[view] = new Controllers[view](Services);
         document.getElementById('outlet').innerHTML = res;
       })
       .catch(err => {

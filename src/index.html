@@ -6,16 +6,25 @@
 </head>
 <link rel="stylesheet" href="./styles.css">
 <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+
 <body>
   <!-- Place for rendering components -->
   <div id="outlet"></div>
+  <div class="loader-wrap" style="display: none;">
+    <div class="loader"></div>
+  </div>
 
 </body>
 <script src="//www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
 <script src="//www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>
 <script src="//www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
+<script src="fb-config.js"></script>
 
 <script src="main.js"></script>
 <script src="controllers/loginController.js"></script>
 <script src="controllers/dashboardController.js"></script>
+<script src="services/loader.js"></script>
 </html>
