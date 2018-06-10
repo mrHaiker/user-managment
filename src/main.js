@@ -20,7 +20,6 @@ Services.firebase = firebase;
       params = extract_params(temp[1]);
     }
 
-    //fire away...
     if(function_to_invoke){
       getView(function_to_invoke, params);
     }
