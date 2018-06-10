@@ -7278,10 +7278,20 @@ iframe {
   .board__main {
     flex: 1 0 0;
     padding: 20px; }
-    .board__main .card-footer {
-      font-size: .75em;
+  .board-footer {
+    font-size: .75em;
+    display: flex;
+    justify-content: flex-end; }
+    .board-footer__err-wrap {
+      flex: 1 0 0;
       display: flex;
-      justify-content: flex-end; }
+      align-items: center; }
+      .board-footer__err-wrap p {
+        margin: 0; }
+    .board-footer__btn-wrap {
+      display: flex;
+      flex: 0 0 160px;
+      justify-content: space-between; }
 
 .side-menu {
   display: flex;
@@ -7339,6 +7349,12 @@ iframe {
     justify-content: flex-end;
     align-items: center;
     color: #999999; }
+
+.input-group-prepend {
+  min-width: 80px; }
+
+.input-group-text {
+  min-width: 80px; }
 
 body {
   margin: 0; }

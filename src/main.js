@@ -32,7 +32,7 @@ Services.firebase = firebase;
       .then((res) => {
         view = view === 'register' ? 'login' : view;
 
-        if (params) Services.router = { params };
+        Services.router = params ? { params } : undefined;
 
         window[view] = new Controllers[view](Services);
         document.getElementById('outlet').innerHTML = res;

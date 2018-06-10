@@ -23,14 +23,25 @@
   &__main {
     flex: 1 0 0;
     padding: 20px;
-
-    .card-footer {
-      font-size: .75em;
+  }
+  &-footer {
+    font-size: .75em;
+    display: flex;
+    justify-content: flex-end;
+    &__err-wrap {
+      flex: 1 0 0;
       display: flex;
-      justify-content: flex-end;
+      align-items: center;
+      p {
+        margin: 0;
+      }
+    }
+    &__btn-wrap {
+      display: flex;
+      flex: 0 0 160px;
+      justify-content: space-between;
     }
   }
-
 }
 
 .side-menu {
@@ -105,4 +116,11 @@
       }
     }
   }
+}
+
+.input-group-prepend {
+  min-width: 80px;
+}
+.input-group-text {
+  min-width: 80px;
 }

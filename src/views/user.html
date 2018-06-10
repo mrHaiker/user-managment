@@ -20,33 +20,38 @@
       <div class="card-body">
         <h5 class="card-title">User</h5>
         <hr>
-        <form class="form-group">
+        <form class="form-group" id="user">
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">Name</span>
             </div>
-            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            <input name="username" type="text" class="form-control">
           </div>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">Email</span>
             </div>
-            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            <input name="email" type="text" class="form-control">
           </div>
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">Age</span>
             </div>
-            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            <input name="age" type="number" class="form-control">
           </div>
         </form>
       </div>
-      <div class="card-footer text-muted">
-        <a href="#/dashboard" class="btn btn-light" >Cancel</a>
+      <div class="card-footer text-muted board-footer">
+        <div class="board-footer__err-wrap">
+          <p id="error-log"></p>
+        </div>
+        <div class="board-footer__btn-wrap">
+          <a href="#/dashboard" class="btn btn-light" >Cancel</a>
 
-        <button class="btn btn-primary">Save</button>
+          <button type="button" class="btn btn-primary" onclick="user.save()">Save</button>
+        </div>
       </div>
     </div>
   </div>
