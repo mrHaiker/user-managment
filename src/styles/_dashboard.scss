@@ -31,13 +31,6 @@
     }
   }
 
-  &__add {
-    background: #b924e0;
-    color: #ffffff;
-    &:hover {
-      background: rgba(#b924e0, .6);
-    }
-  }
 }
 
 .side-menu {
@@ -51,6 +44,7 @@
   box-shadow: 0 0 8px rgba(0,0,0,.23);
   flex-direction: column;
   padding-top: 40px;
+  margin-bottom: 0;
   &__item {
     height: 50px;
     display: flex;

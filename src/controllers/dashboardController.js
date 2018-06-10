@@ -27,7 +27,7 @@ Controllers.dashboard = class {
   getUsers() {
     // this.writeUserData(1, 'Sergey', 'test@test.com')
     this.db().ref('users/').once('value', (snapshot) => {
-      snapshot.forEach(function(childSnapshot) {
+      snapshot.forEach((childSnapshot) => {
         console.log('childSnapshot',
           childSnapshot.key,
           childSnapshot.val()

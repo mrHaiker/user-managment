@@ -31,6 +31,9 @@ Services.firebase = firebase;
       .then((val) => val.text())
       .then((res) => {
         view = view === 'register' ? 'login' : view;
+
+        if (params) Services.router = { params };
+
         window[view] = new Controllers[view](Services);
         document.getElementById('outlet').innerHTML = res;
       })
